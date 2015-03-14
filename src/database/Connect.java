@@ -20,7 +20,7 @@ public class Connect {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             c = DriverManager
-                    .getConnection("jdbc:mysql://localhost/test",
+                    .getConnection("jdbc:mysql://localhost/thesis",
                             "root", "");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
