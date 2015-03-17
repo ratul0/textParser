@@ -33,8 +33,8 @@ public class TextParser {
             try {
                 Statement statement = Connect.CreateStatement(connection);
                 //Statement updateStatement = Connect.CreateStatement(connection);
-                SqlRead = "SELECT id, link, status FROM accident where status = 0";
-                SqlUpdate = "update accident set status=1 where id=?";
+                SqlRead = "SELECT id, link, status FROM international where status = 0";
+                SqlUpdate = "update international set status=1 where id=?";
                 ResultSet rs = statement.executeQuery(SqlRead);
                 PreparedStatement preparedStatement =  connection.prepareStatement(SqlUpdate);
                  //PreparedStatement preparedStatement =  updateStatement.prepareStatement(SqlUpdate);                                      
@@ -46,7 +46,7 @@ public class TextParser {
                     int status = rs.getInt("status");
                     
                     try {
-                        bw = new BufferedWriter(new FileWriter(new File("dataset/accident/link" + id + ".txt"), false));
+                        bw = new BufferedWriter(new FileWriter(new File("dataset/international/link" + id + ".txt"), false));
                         aritcleData = SinglePage.getArticle(link);
                     } catch (IOException ex) {
 
