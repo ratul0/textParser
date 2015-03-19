@@ -27,6 +27,7 @@ public class TextParser {
      */
     public static void main(String[] args) {
         String SqlRead,SqlUpdate,aritcleData = "";
+        
         BufferedWriter bw = null;
         try{
             Connection connection = Connect.CreateConntection();
