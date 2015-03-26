@@ -34,8 +34,8 @@ public class TextParser {
             try {
                 Statement statement = Connect.CreateStatement(connection);
                 //Statement updateStatement = Connect.CreateStatement(connection);
-                SqlRead = "SELECT id, link, status FROM entertainment where status = 0";
-                SqlUpdate = "update entertainment set status=1 where id=?";
+                SqlRead = "SELECT id, link, status FROM politics where status = 0";
+                SqlUpdate = "update politics set status=1 where id=?";
                 ResultSet rs = statement.executeQuery(SqlRead);
                 PreparedStatement preparedStatement =  connection.prepareStatement(SqlUpdate);
                  //PreparedStatement preparedStatement =  updateStatement.prepareStatement(SqlUpdate);                                      
@@ -47,7 +47,7 @@ public class TextParser {
                     int status = rs.getInt("status");
                     
                     try {
-                        bw = new BufferedWriter(new FileWriter(new File("dataset/entertainment/link" + id + ".txt"), false));
+                        bw = new BufferedWriter(new FileWriter(new File("dataset/politics/link" + id + ".txt"), false));
                         aritcleData = SinglePage.getArticle(link);
                     } catch (IOException ex) {
 
