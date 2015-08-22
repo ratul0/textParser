@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package textparser;
 
+import collectData.BDNewsSinglePage;
 import collectData.SinglePage;
 import database.Connect;
 import java.io.BufferedWriter;
@@ -20,14 +22,13 @@ import java.sql.Statement;
  *
  * @author yousufkhan
  */
-public class TextParser {
-
+public class BDnewsTextParser {
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         String SqlRead,SqlUpdate,aritcleData = "";
-        String name = "sports";
+        String name = "cricket";
         
         BufferedWriter bw = null;
         try{
@@ -48,8 +49,8 @@ public class TextParser {
                     int status = rs.getInt("status");
                     
                     try {
-                        bw = new BufferedWriter(new FileWriter(new File("dataset/"+name+"/link" + "bd_"+id + ".txt"), false));
-                        aritcleData = SinglePage.getArticle(link);
+                        bw = new BufferedWriter(new FileWriter(new File("bdnews_dataset/"+name+"/bd_cricket" +id + ".txt"), false));
+                        aritcleData = BDNewsSinglePage.getArticle(link);
                     } catch (IOException ex) {
 
                     }
@@ -92,5 +93,4 @@ public class TextParser {
             System.out.println("Couldn't create Connection.");
         }
     }
-    
 }
